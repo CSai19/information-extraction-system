@@ -19,6 +19,9 @@ import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations.TreeAnnotation;
 import edu.stanford.nlp.util.CoreMap;
 
+import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
+import edu.stanford.nlp.dcoref.CorefChain;
+
 public class SentenceTriplizer {
 
 
@@ -112,6 +115,10 @@ public class SentenceTriplizer {
             tripleList.put(sentenceId, triple);
             sentenceId++;
         }
+
+        Map<Integer, CorefChain> graph =
+                document.get(CorefChainAnnotation.class);
+        System.out.println(graph);
 
 
         return tripleList;

@@ -18,12 +18,6 @@ public class Graph
         driver = GraphDatabase.driver(uri, AuthTokens.basic(user, password));
     }
 
-    public static Set twoWayRelations = new HashSet<String>();
-
-    static {
-        twoWayRelations.addAll(Arrays.asList("spouse", "brother", "sister", "known", "friend", "cousin", "colleague", "classmate"));
-    }
-
     private void addNode(String name)
     {
         // Sessions are lightweight and disposable connection wrappers.
@@ -68,7 +62,7 @@ public class Graph
 
         graph.addNode("No Object");
         
-        String fileName = "/home/chandra/input.txt";
+        String fileName = "/home/chandra/input3.txt";
 
         Map<Integer, SentenceTriple> results = SentenceTriplizer.extractTriples(fileName);
 
